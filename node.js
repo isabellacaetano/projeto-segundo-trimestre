@@ -22,14 +22,46 @@ const perguntas = [
         enunciado: "A garota corre perigo, pois",
         alternativas: [
             "Ao começar a trilha, Clara caiu em cheio em uma área rochosa de difícil acesso,perto de uma cachoeira, assim, machucando sua perna e dificultando as formas de sair dali sozinha",
-            "Alternativa 2"
+            "Acabou sendo sequestrada por Sam, seu ex-namorado"
         ]
     },
     {
-        enunciado: "Pergunta 2",
+        enunciado: "E então, qual foi o fim de Clara?",
         alternativas: [
-            "Alternativa 1",
-            "Alternativa 2"
+            "Conseguiu sair da área de difícil acesso, porém, não resistiu aos ferimentos e acabou morrendo na orla da praia",
+            "Sam, que não aceitava o fim do namoro, acabou matando Clara e abandonou o corpo da mesma na orla da praia"
         ]
     }
 ]
+let atual = 0;
+let perguntaAtual;
+function mostraPergunta() {
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    function mostraAlternativas() {
+        for(const alternativa of perguntaAtual.alternativas) {
+            const botaoAlternativas = document.createElement("button");
+            botaoAlternativa.textContent = alternativa;
+            caixaAlternativas.appendChild(botaoAlternativas);
+        }
+    }
+    
+    mostraPergunta();
+}
+function mostraAlternativas() {
+    for (const alternativa of perguntaAtual.alternativas) {
+      const botaoAlternativas = document.createElement("button");
+      botaoAlternativas.textContent = alternativa;
+      caixaAlternativas.appendChild(botaoAlternativas);
+    }
+  }
+  function mostraAlternativas()
+    for(const alternativa of perguntaAtual.alternativas){
+            const botaoAlternativas = document.createElement("button");
+            botaoAlternativas.textContent = alternativa.texto;
+            botaoAlternativas.addEventListener("click", function(){
+                atual++;
+                mostraPergunta();
+            })
+            caixaAlternativas.appendChild(botaoAlternativas);
+    }
